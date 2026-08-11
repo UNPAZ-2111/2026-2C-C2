@@ -1,18 +1,20 @@
 ﻿// CONTROLADOR
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Vamos a crear un objeto de clase "Jugador"
+        // necesitamos una referencia para invocar al objeto
+        Jugador player = new Jugador();
 
-// Vamos a crear un objeto de clase "Jugador"
-// necesitamos una referencia para invocar al objeto
-
-Jugador player = new Jugador();
-
-// Ahora podemos invocar sus métodos(comportamientos)
-player.Mostrar();
-player.Atacar(10);
-player.Mostrar();
-player.RecibirAtaque(80);
-player.Mostrar();
-
-
+        // Ahora podemos invocar sus métodos(comportamientos)
+        player.Mostrar();
+        player.Atacar(10);
+        player.Mostrar();
+        player.RecibirAtaque(80);
+        player.Mostrar();
+    }
+}
 // MODELO
 
 // Declaramos y definimos la clase "Jugador"
