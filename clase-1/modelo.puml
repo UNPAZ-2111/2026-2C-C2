@@ -1,0 +1,16 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Jugador {
+    - vida : int
+    - energia : int
+    + Atacar (fuerza : int) : void
+    + RecibirAtaque (fuerza ; int) : void
+    + Mostrar() : void
+}
+
+Program ..> Jugador
+@enduml
+
