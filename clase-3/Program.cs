@@ -26,7 +26,7 @@ class Mago
 {
     private int mana;
     private Piedra piedra;
-    private Mascota miMascota;
+    private Mascota? miMascota;
 
     public Mago(int mana) 
     {
