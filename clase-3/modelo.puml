@@ -1,0 +1,49 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+class Mago {
+    - mana : int
+    - piedra : Piedra
+    - miMascota : Mascota
+    + Mago(mana : int)
+    + Descansar() : void
+    + InvocarMascota() : void
+    + RegenerarPiedra() : void
+    + EntregarMana() : int
+    + AdoptarMascota (unaMascota : Mascota) : void    
+    + DejarMascota() : void    
+    + Mostrar() : void
+}
+
+class Piedra {
+    - carga : int
+    - cargaActual : int
+    + Piedra()
+    + Piedra(carga : int)
+    - Recargar() : void
+    + SerRegenerada(unMago : Mago) : void
+    + SerUsada(unaMascota : Mascota) : void
+    + Mostrar() : void
+}
+
+class Mascota {
+    - vida : int
+    - vidaActual : int
+    + Mascota(vida : int)
+    + SerInvocada()
+    + RecibirVida(): void
+    + RecibirAtaque(fuerza : int)
+    + estaViva() : bool
+    + Descansar() : void
+    + Mostrar() : void
+}
+
+Program ..> Mago
+Program ..> Mascota
+Mago *-- Piedra
+Mago o-- Mascota
+Piedra - Mascota
+@enduml
+
