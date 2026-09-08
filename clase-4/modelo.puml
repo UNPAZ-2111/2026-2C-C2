@@ -1,0 +1,43 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+abstract class UsuarioPersona {
+    # nombre : string
+    # vida : int
+    # espiritu : int
+    # miPersona : Persona
+    + UsuarioPersona(nombre : string, vida : int, espiritu : int, miPersona : Persona)
+    + Atacar() : void
+    + UsarPersona(usuario : UsuarioPersona) : void   
+    + ConsumirEspíritu(cantidad : int) : void
+    + <<virtual>> Mostrar() : void
+}
+
+class Protagonista {
+    + Protagonista()
+    + CambiarPersona(unaPersona : Persona) : void
+    + <<override>> Mostrar() : void
+}
+
+class Compa {
+    + Compa()
+    + SeguirOrden(orden : string) : void
+    + <<override>> Mostrar() : void
+}
+
+class Persona{
+    - cuotaEspiritu : int
+    + Atacar(usuario : UsuarioPersona) : void
+}
+Program ..> UsuarioPersona
+Program ..> Persona
+UsuarioPersona <|-- Protagonista
+UsuarioPersona <|-- Compa 
+
+Protagonista o-- Persona
+Compa *-- Persona
+
+@enduml
+
