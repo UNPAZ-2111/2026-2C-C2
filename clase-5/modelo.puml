@@ -1,0 +1,46 @@
+@startuml
+class Program {
+    - {static} Main(args:string[]) : void
+}
+
+abstract class Luchador {
+    # nombre : string
+    # vida : int
+    - puntosAtaque : int
+    - puntosDefensa : int
+    + Luchador(puntosTotales : int)
+    + <<virtual>> Atacar(rival : Luchador) : void   
+    + <<virtual>> RecibirAtaque(puntos : int) : void
+    +  Mostrar() : void
+}
+
+class Ryu {
+    - puntosAcumulados : int
+    + Ryu(puntosTotales : int)
+    + getPuntosAcumulados() : int
+    + <<override>> Atacar(rival : Luchador) : void
+    + <<override>> RecibirAtaque(furza : int) : void
+    - AtacarNormal(rival : Luchador) : void
+    - AtacarEspecial(rival : Luchador) : void
+    + <<override>> ToString() : string
+}
+
+class Guile {
+    - ataqueEspecialActivo : bool
+    + Guile(puntosTotales : int)
+    + getAtaqueEspecialActivo() : bool
+    + <<override>> Atacar(rival : Luchador) : void
+    + <<override>> RecibirAtaque(furza : int) : void
+    - AtacarNormal(rival : Luchador) : void
+    - AtacarEspecial(rival : Luchador) : void
+}
+
+Program ..> Luchador
+Program ..> Random
+Luchador <|-- Ryu
+Luchador <|-- Guile 
+Luchador ..> Random
+Luchador -- Luchador
+
+@enduml
+
