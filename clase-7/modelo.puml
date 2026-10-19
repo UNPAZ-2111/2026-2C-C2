@@ -1,0 +1,32 @@
+@startuml
+
+class Personaje{
+    - inventario[3] : Item
+    + Personaje(pesoMaximo : int)
+    + AgarrarItem(unItem : Item) : bool
+    + DejarItem(ubicacion : int) : bool
+    + estaArmado() : bool
+    + PesoTotal() : int 
+    + Mostrar() : void
+}
+
+class Item{
+    - descripcion : string
+    - peso : int
+    + Item(descripcion : string, peso : int)
+    + getDescripcion() : string
+    + getPeso() : int
+}
+
+class Pistola{}
+class Botella{}
+class Agua{}
+
+Item <|-- Pistola
+Item <|-- Botella
+Item <|-- Agua
+
+Personaje "1" -- "0..3" Item
+
+@enduml
+
